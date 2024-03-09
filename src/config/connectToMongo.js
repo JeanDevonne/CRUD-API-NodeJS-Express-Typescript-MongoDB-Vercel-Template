@@ -1,5 +1,5 @@
-import mongoose, { ConnectOptions } from "mongoose";
-import config from "../config/config";
+import mongoose from "mongoose";
+import config from "./config";
 
 //Function to connect to your mongoDB cluster
 const connectDb = () => {
@@ -7,7 +7,7 @@ const connectDb = () => {
     .connect(config.mongoUrl, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    } as ConnectOptions)
+    })
     .then(() => {
       console.log("Connection to MongoDB successful !");
     })

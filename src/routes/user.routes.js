@@ -10,4 +10,4 @@ router.post("/api/users", userCtrl.createUser);
 router.put("/api/users/:id", userCtrl.updateUser);
 router.delete("/api/users/:id", userCtrl.deleteUserByID);
 
-export default router;
+module.exports = router;
