@@ -15,5 +15,5 @@ const userSchema = new mongoose.Schema({
   lat: Number,
   lng: Number,
 });
-
+  
 export default mongoose.model<IUser>("User", userSchema);
