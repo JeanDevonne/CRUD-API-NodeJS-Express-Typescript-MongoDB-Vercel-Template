@@ -24,8 +24,11 @@ const getUserByID = async (req: Request, res: Response) => {
 // Route to create an user in the collection
 const createUser = async (req: Request, res: Response) => {
   const newUser = new User({
+    busPlate: req.body.busPlate,
     lastname: req.body.lastname,
     firstname: req.body.firstname,
+    lat: req.body.lat,
+    lng: req.body.lng,
   });
   try {
     const createdUser = await newUser.save();
@@ -42,8 +45,8 @@ const updateUser = async (req: Request, res: Response) => {
     if (!userByID) {
       return res.status(404).json({ message: "User not found" });
     }
-    userByID.lastname = req.body.lastname;
-    userByID.firstname = req.body.firstname;
+    userByID.lat = req.body.lat;
+    userByID.lng = req.body.lng;
 
     const updatedUser = await userByID.save();
     res.json(updatedUser);
