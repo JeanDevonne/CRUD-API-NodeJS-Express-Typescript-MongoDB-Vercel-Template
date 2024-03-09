@@ -36,8 +36,11 @@ const getUserByID = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 // Route to create an user in the collection
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const newUser = new user_model_1.default({
+        busPlate: req.body.busPlate,
         lastname: req.body.lastname,
         firstname: req.body.firstname,
+        lat: req.body.lat,
+        lng: req.body.lng,
     });
     try {
         const createdUser = yield newUser.save();
@@ -54,8 +57,8 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         if (!userByID) {
             return res.status(404).json({ message: "User not found" });
         }
-        userByID.lastname = req.body.lastname;
-        userByID.firstname = req.body.firstname;
+        userByID.lat = req.body.lat;
+        userByID.lng = req.body.lng;
         const updatedUser = yield userByID.save();
         res.json(updatedUser);
     }
