@@ -3,6 +3,7 @@ const Posts = require("../models/Posts");
 
 const router = express.Router();
 
+//comentario
 router.get("/", (req, res) => {
   Posts.find()
     .exec()
