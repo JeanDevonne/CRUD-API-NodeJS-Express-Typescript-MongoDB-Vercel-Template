@@ -4,8 +4,8 @@
   "description": "Basic starter CRUD API REST ready to go on your vercel",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "tsc -w & nodemon dist/index.js",
+    "start": "node ./api/index.js",
+    "dev": "nodemon ./api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

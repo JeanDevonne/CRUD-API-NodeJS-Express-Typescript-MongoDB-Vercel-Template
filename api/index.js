@@ -9,10 +9,13 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connecting to DB
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://parcona:MHaVZifyaTOZhMys@trashtrackalert.svuvkcj.mongodb.net/test",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 // Importing routes
 const posts = require("./routes/posts");
@@ -20,4 +23,7 @@ const posts = require("./routes/posts");
 // Routes
 app.use("/api/posts", posts);
 
+app.listen(8080, () => {
+  console.log("escuchamdo");
+});
 module.exports = app;
