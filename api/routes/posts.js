@@ -3,17 +3,28 @@ const Posts = require("../models/Posts");
 
 const router = express.Router();
 
-//comentario
+//Crear un Post
+router.post("/", (req, res) => {
+  Posts.create(req.body).then((x) => res.status(201).send(x));
+});
+
+//Leer todos los Post
 router.get("/", (req, res) => {
   Posts.find()
     .exec()
     .then((x) => res.status(200).send(x));
 });
 
-router.post("/", (req, res) => {
-  Posts.create(req.body).then((x) => res.status(201).send(x));
+//Leer un Post por su Placa de Bus
+router.get("/:busPlate", (req, res) => {
+  Posts.findOne({
+    busPlate: req.params.busPlate,
+  })
+    .exec()
+    .then((x) => res.status(200).send(x));
 });
 
+//Actualizar un Post
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   const update = req.body;

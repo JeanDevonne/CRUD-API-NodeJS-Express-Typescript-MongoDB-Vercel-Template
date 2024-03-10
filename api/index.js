@@ -26,4 +26,5 @@ app.use("/api/posts", posts);
 app.listen(8080, () => {
   console.log("escuchamdo");
 });
+
 module.exports = app;
