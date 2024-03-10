@@ -1,16 +1,19 @@
 {
   "version": 2,
+  "name": "parconatrash-api",
   "builds": [
     {
-      "src": "dist/server.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "src": "/api/index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "dist/server.js"
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
     }
-  ]
+  ],
+  "env": {
+    "MONGO_URL": "@mongo-url"
+  }
 }
